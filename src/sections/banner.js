@@ -1,19 +1,20 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { useState } from 'react';
-import { rgba } from 'polished';
-import { jsx, Flex, Container, Heading, Text, Button } from 'theme-ui';
-import Image from 'components/image';
-import Play from 'components/icons/play';
-import dynamic from 'next/dynamic';
+import { useState } from "react";
+import { rgba } from "polished";
+import { jsx, Flex, Container, Heading, Text, Button } from "theme-ui";
+import Image from "components/image";
+import Play from "components/icons/play";
+import dynamic from "next/dynamic";
+import Link from "next/link";
 // import ModalVideo from 'react-modal-video';
 const ModalVideo = dynamic(
   () => {
-    return import('react-modal-video');
+    return import("react-modal-video");
   },
   { ssr: false }
 );
-import banner from 'assets/images/banner.png';
+import banner from "assets/images/banner.png";
 
 const Banner = () => {
   const [videoOpen, setVideoOpen] = useState(false);
@@ -25,27 +26,18 @@ const Banner = () => {
     <section id="home" sx={styles.section}>
       <Container sx={styles.container}>
         <div sx={styles.content}>
-          <Heading as="h1">
-            Cloud CRM Software for entry level business enterprise
-          </Heading>
-          <Text as="p">A simple and powerful erp management tools</Text>
+          <Heading as="h1">A quick and perfect place to find</Heading>
+          <Heading as="h2">your personalised recipe</Heading>
+          <Text as="p">
+            Recipifier is a recommendation system that can generate recipes
+            based on your preferences and health conditions.{" "}
+          </Text>
           <Flex sx={styles.buttonGroup}>
-            <Button variant="primary" sx={styles.btnPrimary}>
-              Try free trial
-            </Button>
-            <Button
-              variant="outlined"
-              sx={styles.btnOutlined}
-              onClick={handleClick}
-            >
-              Discover video <Play fill="white" />
-            </Button>
-            <ModalVideo
-              channel="youtube"
-              isOpen={videoOpen}
-              videoId="ZNA9rmDsYVE"
-              onClose={() => setVideoOpen(false)}
-            />
+            <Link href="/secondpage">
+              <Button variant="primary" sx={styles.btnPrimary}>
+                Start Recipify_ <Play fill="white" />
+              </Button>
+            </Link>
           </Flex>
         </div>
         <Flex as="figure" sx={styles.illustration}>
@@ -60,66 +52,71 @@ export default Banner;
 
 const styles = {
   section: {
-    backgroundColor: '#2C2C2C',
+    backgroundColor: "#2C2C2C",
     // pt: [8, null, null, null, 10, 14],
     // pb: [8, null, null, null, 10, 14],
-    position: 'relative',
+    position: "relative",
     zIndex: 0,
-    '::before': {
-      backgroundColor: 'white',
+    "::before": {
+      backgroundColor: "white",
       content: `''`,
-      position: 'absolute',
+      position: "absolute",
       height: [30, null, null, 70, 85, 120],
       bottom: 0,
-      width: '100%',
+      width: "100%",
       zIndex: -1,
     },
   },
   container: {
-    minHeight: [null, null, null, null, null, '100vh'],
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    flexDirection: 'column',
+    minHeight: [null, null, null, null, null, "100vh"],
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    flexDirection: "column",
   },
   content: {
-    maxWidth: [null, null, null, 570, 690],
-    textAlign: 'center',
+    maxWidth: [null, null, null, 570, 790],
+    textAlign: "center",
     marginTop: [18, null, null, 22, 180],
     h1: {
-      color: 'white',
-      fontSize: [7, null, null, 12, 14],
+      color: "white",
+      fontSize: [7, null, null, 12, 18],
+      lineHeight: 1.35,
+    },
+    h2: {
+      color: "#C89447",
+      fontSize: [7, null, null, 12, 18],
       lineHeight: 1.35,
     },
     p: {
-      color: rgba('white', 0.8),
-      fontSize: [1, null, null, 2],
+      color: rgba("white", 0.8),
+      fontSize: [1, null, null, 8],
       marginTop: [3, null, null, 6],
     },
   },
   buttonGroup: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     marginTop: [6, null, null, 8],
-    position: 'relative',
+    position: "relative",
     zIndex: 2,
     button: {
-      px: ['12px', null, null, '18px'],
+      px: ["12px", null, null, "18px"],
     },
   },
   btnPrimary: {},
   btnOutlined: {
-    borderColor: rgba('white', 0.25),
-    color: 'white',
+    borderColor: rgba("white", 0.25),
+    color: "white",
     ml: 3,
     svg: {
       ml: 2,
     },
   },
   illustration: {
-    transform: ['scale(1.20)', null, null, 'none'],
-    alignItems: 'center',
-    display: 'flex',
+    transform: ["scale(1.20)", null, null, "none"],
+    alignItems: "center",
+    display: "flex",
     marginTop: [2, null, null, -4, -5],
   },
 };

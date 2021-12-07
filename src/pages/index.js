@@ -22,19 +22,13 @@ export default function IndexPage() {
           description="Food Recipe Recommendation Engine For Everyone "
         />
         <Banner />
-        <h1 className="title">
-          Read{" "}
-          <Link href="/secondpage">
-            <a>this page!</a>
-          </Link>
-        </h1>
-        <Testimonials />
+        {/* <Testimonials />
         <Security />
         <Addons />
         <Dashboard />
         <UltimateFeatures />
         <MobileApp />
-        <Faq />
+        <Faq /> */}
       </Layout>
     </ThemeProvider>
   );
