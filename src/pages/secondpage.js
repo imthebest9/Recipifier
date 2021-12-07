@@ -1,3 +1,3 @@
 export default function FirstPost() {
-    return <h1>Firswwwwwt Post</h1>
+    return <h1>chubabimunieniu</h1>
   }
